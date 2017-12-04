@@ -1,3 +1,4 @@
+#if !NETSTANDARD2_0
 using System;
 using System.Collections.Generic;
 using System.Xml;
@@ -105,7 +106,7 @@ namespace QuickGraph.Serialization
         where TEdge : IEdge<TVertex>
         where TGraph : IMutableVertexAndEdgeSet<TVertex, TEdge>
     {
-        #region Compiler
+#region Compiler
         delegate void ReadVertexAttributesDelegate(
             XmlReader reader,
             string namespaceUri,
@@ -392,7 +393,7 @@ namespace QuickGraph.Serialization
                 return method.CreateDelegate(delegateType);
             }
         }
-        #endregion
+#endregion
 
         public void Deserialize(
             XmlReader reader,
@@ -605,3 +606,4 @@ namespace QuickGraph.Serialization
         }
     }
 }
+#endif

@@ -1,3 +1,4 @@
+#if !NETSTANDARD2_0
 using System;
 using System.Collections.Generic;
 using System.Xml;
@@ -100,7 +101,7 @@ namespace QuickGraph.Serialization
         where TEdge : IEdge<TVertex>
         where TGraph : IEdgeListGraph<TVertex, TEdge>
     {
-        #region Compiler
+#region Compiler
         delegate void WriteVertexAttributesDelegate(
             XmlWriter writer,
             TVertex v);
@@ -331,7 +332,7 @@ namespace QuickGraph.Serialization
                 return method.CreateDelegate(delegateType);
             }
         }
-        #endregion
+#endregion
 
         public void Serialize(
             XmlWriter writer, 
@@ -654,3 +655,4 @@ namespace QuickGraph.Serialization
         }
     }
 }
+#endif
